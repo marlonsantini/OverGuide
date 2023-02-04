@@ -6,6 +6,7 @@
     tools:context=".view.ui.allcharacters.HomeFragment">
 
     <TextView
+        android:id="@+id/tvAgents"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="Hello" />
