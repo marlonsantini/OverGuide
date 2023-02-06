@@ -1,0 +1,12 @@
+>> Injeção de dependencia
+
+Ela é aplicada nas camadas de viewmode, repository, api e retrofit
+Pensar nela como uma festa, com verificação dos convidados(modules)
+entrada e retorno deles (single e factory)
+e inicio na application(startkoin)
+
+
+>> Coroutines
+
+É aplicado na viewmodel usando viewmodelScope.launch
+e suspend no repository e API
