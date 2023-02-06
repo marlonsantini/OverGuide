@@ -2,9 +2,11 @@ package fingerfire.com.overwatch.data.model
 
 import com.squareup.moshi.Json
 
+/** Classe reponsável pelo gerenciamento do campos de recebimento do json
+ * sendo usado DataClass e o converter Moshi */
 data class AgentResponse(
-    @Json(name = "data")
-    val data: List<AgentDataResponse>,
+    @field:Json(name = "data")
+    val name: List<AgentDataResponse>,
     @Json(name = "status")
-    val statuss: Int
+    val status: Int
 )

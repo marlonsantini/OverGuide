@@ -1,20 +1,18 @@
 package fingerfire.com.overwatch.network
 
-import fingerfire.com.overwatch.api.ValorantApi
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
-object RetrofitBuilder {
+/** Classe responsável por fazer o tratamenteo de conexão com o retrofit
+ * já com a base url colocada na constante */
+object SetupRetrofit {
 
     private const val BASE_URL = "https://valorant-api.com/v1/"
 
-    private fun getRetrofit(): Retrofit {
+    fun getRetrofit(): Retrofit {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(MoshiConverterFactory.create())
             .build()
     }
-
-    val valorantApi: ValorantApi = getRetrofit().create(ValorantApi::class.java)
-
 }

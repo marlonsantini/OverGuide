@@ -59,4 +59,8 @@ dependencies {
     //MVVM e LiveData
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
+
+    //Koin
+    implementation 'io.insert-koin:koin-core:3.3.2'
+    implementation 'io.insert-koin:koin-android:3.3.2'
 }

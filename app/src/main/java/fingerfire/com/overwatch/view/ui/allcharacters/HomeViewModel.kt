@@ -6,22 +6,30 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import fingerfire.com.overwatch.data.model.AgentResponse
 import fingerfire.com.overwatch.data.repository.AgentsRepository
-import fingerfire.com.overwatch.network.RetrofitBuilder.valorantApi
 import kotlinx.coroutines.launch
 
-class HomeViewModel : ViewModel() {
 
+/** Classe viewmodel com as regras de negocio
+ * já com injeção de dependencia, coroutines e livedata */
+class HomeViewModel(private val agentsRepository: AgentsRepository) : ViewModel() {
 
-    //JEITO QUE ALEX GOSTA!
-    private val agentsRepository = AgentsRepository(valorantApi)
+    /**
+    MutableLiveData é uma função que recebe objetos que podem ser alterados.
+    LiveData é uma função que recebe objetos que NÃO podem ser alterados.
+    */
     private val agentsMutableLiveData: MutableLiveData<AgentResponse> = MutableLiveData<AgentResponse>()
     val agentsLiveData: LiveData<AgentResponse>
+    //uso do get
         get() {
            return agentsMutableLiveData
         }
 
 
     fun getAgents() {
+        /**
+        Chamada do ViewScope.launch do Coroutines para dizer que isso vai executar em outra thread
+        e não na principal
+        */
         viewModelScope.launch {
             val agentResponse = agentsRepository.loadAgents()
             agentsMutableLiveData.postValue(agentResponse)

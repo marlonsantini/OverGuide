@@ -6,6 +6,7 @@ import fingerfire.com.overwatch.view.ui.allcharacters.HomeFragment
 
 class MainActivity : AppCompatActivity() {
 
+    /** Classe da activity principal responsável por hospedar os fragments */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

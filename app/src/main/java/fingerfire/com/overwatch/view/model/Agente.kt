@@ -1,4 +1,6 @@
 package fingerfire.com.overwatch.view.model
 
-class Agente {
-}
+
+/** Essa classe é usada para quando recebe alguma alteração da classe model que
+ * usa os mesmos campos */
+class Agente
