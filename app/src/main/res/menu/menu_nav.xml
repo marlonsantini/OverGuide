@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/nav_agents"
-        android:icon="@drawable/agents_selector"
-        android:title="@string/agents" />
+        android:id="@+id/nav_heroes"
+        android:icon="@drawable/heroes_selector"
+        android:title="@string/heroes" />
 
     <item
         android:id="@+id/nav_maps"
@@ -12,8 +12,8 @@
         android:title="@string/maps" />
 
     <item
-        android:id="@+id/nav_weapons"
-        android:icon="@drawable/weapons_selector"
-        android:title="@string/arsenal" />
+        android:id="@+id/nav_patchs"
+        android:icon="@drawable/patchs_selector"
+        android:title="@string/patch" />
 
 </menu>
