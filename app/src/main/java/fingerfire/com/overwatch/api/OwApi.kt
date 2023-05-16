@@ -1,13 +1,12 @@
 package fingerfire.com.overwatch.api
 
-import fingerfire.com.overwatch.data.model.AgentResponse
+import fingerfire.com.overwatch.features.heroes.data.response.HeroesResponse
+import retrofit2.Response
 import retrofit2.http.GET
 
-/** Nessa interface ficam os end-points da API
- * API SEMPRE VAI SER UMA INTERFACE */
 interface OwApi {
-    @GET("agents")
-    suspend fun getAgents(
-    ): AgentResponse
 
+    @GET("/heroes")
+    suspend fun getHeroes(
+    ): Response<HeroesResponse>
 }

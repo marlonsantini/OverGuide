@@ -2,12 +2,12 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_maps"
+    android:id="@+id/nav_heroes"
     app:startDestination="@id/heroesFragment">
 
     <fragment
-        android:id="@+id/heroesFragment">
-        <!--        android:name="fingerfire.com.valorant.features.maps.ui.MapsFragment">-->
+        android:id="@+id/heroesFragment"
+                android:name="fingerfire.com.overwatch.features.heroes.ui.HeroesFragment">
         <!--        <action-->
         <!--            android:id="@+id/action_mapsFragment_to_mapDetailFragment"-->
         <!--            app:destination="@id/mapDetailFragment" />-->

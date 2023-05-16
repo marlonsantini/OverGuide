@@ -7,7 +7,6 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import fingerfire.com.overwatch.databinding.ActivityMainBinding
-import fingerfire.com.overwatch.view.ui.allcharacters.HomeFragment
 
 class MainActivity : AppCompatActivity() {
 
