@@ -33,8 +33,7 @@ class HeroesFragment : Fragment() {
     private fun observerHeroes() {
         viewModel.heroesLiveData.observe(viewLifecycleOwner) {
             val teste = it.sucess
-            binding.imageView.load(teste?.data?.get(0)?.fullPortrait ?: "fail")
-            binding.imageView2.load(teste?.data?.get(0)?.bustPortrait ?: "fail")
+            binding.imageView.load(teste?.data?.get(0)?.fullPortraitV2 ?: "fail")
 
         }
     }
