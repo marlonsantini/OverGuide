@@ -3,4 +3,6 @@
     <string name="heroes">Heróis</string>
     <string name="maps">Mapas</string>
     <string name="patch">Patch</string>
+    <string name="title_heroes">Escolha</string>
+    <string name="hero_image">Imagem de heroi</string>
 </resources>
