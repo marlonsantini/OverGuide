@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import fingerfire.com.overwatch.databinding.FragmentHeroesBinding
 import fingerfire.com.overwatch.features.heroes.data.response.HeroesDataResponse
-import fingerfire.com.overwatch.features.heroes.data.response.HeroesResponse
 import fingerfire.com.overwatch.features.heroes.ui.adapter.HeroesAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -51,8 +50,8 @@ class HeroesFragment : Fragment() {
         binding.recyclerView.setHasFixedSize(true)
     }
 
-    private fun initAdapter(heroesResponse: HeroesResponse) {
-        heroesAdapter = HeroesAdapter(heroesResponse.data)
+    private fun initAdapter(heroesResponse: List<HeroesDataResponse>) {
+        heroesAdapter = HeroesAdapter(heroesResponse)
         binding.recyclerView.adapter = heroesAdapter
     }
 }
