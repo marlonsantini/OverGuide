@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import fingerfire.com.overwatch.databinding.FragmentHeroesBinding
+import fingerfire.com.overwatch.features.heroes.data.response.HeroesDataResponse
 import fingerfire.com.overwatch.features.heroes.data.response.HeroesResponse
 import fingerfire.com.overwatch.features.heroes.ui.adapter.HeroesAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
