@@ -9,7 +9,7 @@
     app:cardCornerRadius="@dimen/corner_radius" >
 
     <ImageView
-        android:id="@+id/item"
+        android:id="@+id/imHeroes"
         android:layout_width="match_parent"
         android:layout_height="@dimen/grid_item_height"
         android:contentDescription="@string/hero_image"

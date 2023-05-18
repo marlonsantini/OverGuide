@@ -5,10 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import fingerfire.com.overwatch.databinding.FragmentHeroesDetailBinding
+import fingerfire.com.overwatch.features.heroes.data.response.HeroesDataResponse
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import androidx.navigation.fragment.navArgs
 
 class HeroesDetailFragment : Fragment() {
 
@@ -29,5 +30,27 @@ class HeroesDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getHeroesDetail(args.id)
+        initHeroesDetailObserve()
+        initBackButtonClickListener()
+    }
+
+    private fun initHeroesDetailObserve() {
+        viewModel.heroesDetailLiveData.observe(viewLifecycleOwner) {
+            initUi(it)
+        }
+    }
+
+    private fun initBackButtonClickListener() {
+        binding.backButtonImageView.setOnClickListener {
+            findNavController().popBackStack()
+        }
+    }
+
+    private fun initUi(heroesDataResponse: HeroesDataResponse) {
+        binding.apply {
+            heroesDataResponse.let { item ->
+                binding.tvHeroesName.text = item.displayName
+            }
+        }
     }
 }

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import fingerfire.com.overwatch.databinding.FragmentHeroesBinding
 import fingerfire.com.overwatch.features.heroes.data.response.HeroesDataResponse
@@ -51,7 +52,15 @@ class HeroesFragment : Fragment() {
     }
 
     private fun initAdapter(heroesResponse: List<HeroesDataResponse>) {
-        heroesAdapter = HeroesAdapter(heroesResponse)
+        heroesAdapter = HeroesAdapter(heroesResponse, itemClick = {
+            it._id.let { _id ->
+                findNavController().navigate(
+                    HeroesFragmentDirections.actionHeroesFragmentToHeroesDetailFragment(
+                        _id
+                    )
+                )
+            }
+        })
         binding.recyclerView.adapter = heroesAdapter
     }
 }
