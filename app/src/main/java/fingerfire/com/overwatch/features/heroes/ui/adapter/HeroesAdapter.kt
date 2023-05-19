@@ -40,5 +40,4 @@ class HeroesAdapter(
 
     class HeroesViewHolder(val binding: ItemHeroesBinding) : RecyclerView.ViewHolder(binding.root)
 
-
 }
