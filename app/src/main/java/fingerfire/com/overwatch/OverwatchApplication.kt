@@ -7,6 +7,8 @@ import fingerfire.com.overwatch.features.heroes.di.HeroesDataModules
 import fingerfire.com.overwatch.features.heroes.di.HeroesUiModules
 import fingerfire.com.overwatch.features.maps.di.MapsDataModules
 import fingerfire.com.overwatch.features.maps.di.MapsUiModules
+import fingerfire.com.overwatch.features.patchs.di.PatchsDataModules
+import fingerfire.com.overwatch.features.patchs.di.PatchsUiModules
 import org.koin.core.context.startKoin
 
 class OverwatchApplication : Application() {
@@ -21,7 +23,9 @@ class OverwatchApplication : Application() {
                     HeroesDataModules().getAgentsDataModules(),
                     HeroesUiModules().getViewModules(),
                     MapsDataModules().getMapsDataModules(),
-                    MapsUiModules().getViewModules()
+                    MapsUiModules().getViewModules(),
+                    PatchsDataModules().getPatchsDataModules(),
+                    PatchsUiModules().getViewModules()
                 )
             )
         }
