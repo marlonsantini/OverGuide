@@ -1,6 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:background="@color/light_blue"
+    android:paddingStart="@dimen/page_horizontal_padding"
+    android:paddingTop="@dimen/size_8"
+    android:paddingEnd="@dimen/page_horizontal_padding"
+    android:paddingBottom="@dimen/size_4">
+
+    <ImageView
+        android:id="@+id/ivHero"
+        android:layout_width="@dimen/avatar_review"
+        android:layout_height="@dimen/avatar_review"
+        android:src="@color/cardBackground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvName"
+        style="@style/Subtitle2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/size_8"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/tvType"
+        app:layout_constraintStart_toEndOf="@+id/ivHero"
+        app:layout_constraintTop_toTopOf="@+id/ivHero"
+        tools:text="Rainha Junker" />
+
+    <TextView
+        android:id="@+id/tvType"
+        style="@style/Caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/ivHero"
+        app:layout_constraintStart_toStartOf="@+id/tvName"
+        app:layout_constraintTop_toBottomOf="@+id/tvName"
+        tools:text="Tanque" />
+
+    <TextView
+        android:id="@+id/tvDevComment"
+        style="@style/Caption"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_12"
+        android:ellipsize="end"
+        android:maxLines="5"
+        android:textStyle="italic"
+        android:paddingBottom="@dimen/size_4"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/ivHero"
+        tools:text="Comentários dos desenvolvedores: Essas mudanças aumentam a presença da Rainha Junker na linha de frente, aumentando a cura a si mesma e a sustentabilidade ofensiva dela. Também aumentamos o tamanho do projétil de Lâmina Serrilhada para atingir com mais consistência." />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

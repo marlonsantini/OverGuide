@@ -3,6 +3,7 @@ package fingerfire.com.overwatch.features.patchs.ui.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import fingerfire.com.overwatch.databinding.ItemPatchsBinding
 import fingerfire.com.overwatch.features.patchs.data.response.PatchsDataResponse
 
@@ -20,6 +21,10 @@ class PatchsAdapter(
     override fun onBindViewHolder(holder: PatchsViewHolder, position: Int) {
         with(holder) {
             with(patchsList[position]) {
+                binding.ivHero.load(displayImage)
+                binding.tvName.text = displayName
+                binding.tvType.text = roleType
+                binding.tvDevComment.text = devComment
 
             }
         }

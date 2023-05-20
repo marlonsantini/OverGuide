@@ -4,11 +4,13 @@
     <color name="purple_500">#FFFFFFFF</color>
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
+    <color name="colorAccent">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
     <color name="main_background">#F316222E</color>
+    <color name="colorPrimary">#F316222E</color>
     <color name="background_more_black">#0F1821</color>
     <color name="main_more_black">#0F1821</color>
     <color name="orange">#F95D24</color>
@@ -22,4 +24,5 @@
     <color name="grey">#2B363F</color>
     <color name="light_blue">#212830</color>
     <color name="dark_blue">#222b43</color>
+    <color name="cardBackground">#222b43</color>
 </resources>
