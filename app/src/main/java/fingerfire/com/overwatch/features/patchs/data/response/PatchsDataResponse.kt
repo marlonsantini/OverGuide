@@ -4,5 +4,6 @@ data class PatchsDataResponse(
     val displayName: String,
     val roleType: String,
     val displayImage: String,
-    val devComment: String
+    val devComment: String,
+    val changes: List<PatchsChangeDataResponse>
 )

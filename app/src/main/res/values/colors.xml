@@ -25,4 +25,6 @@
     <color name="light_blue">#212830</color>
     <color name="dark_blue">#222b43</color>
     <color name="cardBackground">#222b43</color>
+    <color name="cardBackgroundD">#9A9CA280</color>
+
 </resources>

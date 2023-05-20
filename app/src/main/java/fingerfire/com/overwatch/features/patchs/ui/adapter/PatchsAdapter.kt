@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import fingerfire.com.overwatch.databinding.ItemPatchsBinding
+import fingerfire.com.overwatch.databinding.ItemPatchsChangesBinding
 import fingerfire.com.overwatch.features.patchs.data.response.PatchsDataResponse
 
 class PatchsAdapter(
@@ -23,9 +24,8 @@ class PatchsAdapter(
             with(patchsList[position]) {
                 binding.ivHero.load(displayImage)
                 binding.tvName.text = displayName
-                binding.tvType.text = roleType
                 binding.tvDevComment.text = devComment
-
+                binding.rvPatchesChanges.adapter = PatchsChangeAdapter(changes)
             }
         }
     }

@@ -12,8 +12,6 @@ class HeroesAdapter(
     private val itemClick: (HeroesDataResponse) -> Unit
 ) : RecyclerView.Adapter<HeroesAdapter.HeroesViewHolder>() {
 
-    //private var _heroesList = heroesList.toMutableList()
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HeroesViewHolder {
         return HeroesViewHolder(
             ItemHeroesBinding
