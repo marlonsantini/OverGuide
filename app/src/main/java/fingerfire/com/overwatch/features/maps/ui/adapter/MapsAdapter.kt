@@ -3,6 +3,7 @@ package fingerfire.com.overwatch.features.maps.ui.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import fingerfire.com.overwatch.databinding.ItemHeroesBinding
 import fingerfire.com.overwatch.databinding.ItemMapsBinding
 import fingerfire.com.overwatch.features.heroes.ui.adapter.HeroesAdapter
@@ -22,6 +23,7 @@ class MapsAdapter(
     override fun onBindViewHolder(holder: MapsViewHolder, position: Int) {
         with(holder) {
             with(mapsList[position]) {
+                binding.imMap.load(displayImage)
 
             }
         }

@@ -9,9 +9,9 @@
     app:cardCornerRadius="@dimen/corner_radius" >
 
     <ImageView
-        android:id="@+id/imHeroes"
+        android:id="@+id/imMap"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/grid_item_height"
+        android:layout_height="250dp"
         android:contentDescription="@string/hero_image"
         android:scaleType="fitXY"
         tools:ignore="ImageContrastCheck" />
