@@ -1,7 +1,5 @@
 package fingerfire.com.overwatch.features.maps.di
 
-import fingerfire.com.overwatch.features.heroes.ui.HeroesDetailViewModel
-import fingerfire.com.overwatch.features.heroes.ui.HeroesViewModel
 import fingerfire.com.overwatch.features.maps.ui.MapsViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module

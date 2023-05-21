@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import fingerfire.com.overwatch.databinding.ItemPatchsBinding
-import fingerfire.com.overwatch.databinding.ItemPatchsChangesBinding
 import fingerfire.com.overwatch.features.patchs.data.response.PatchsDataResponse
 
 class PatchsAdapter(

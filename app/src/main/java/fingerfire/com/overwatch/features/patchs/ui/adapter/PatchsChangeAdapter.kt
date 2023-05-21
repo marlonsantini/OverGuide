@@ -4,10 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import fingerfire.com.overwatch.databinding.ItemPatchsBinding
 import fingerfire.com.overwatch.databinding.ItemPatchsChangesBinding
 import fingerfire.com.overwatch.features.patchs.data.response.PatchsChangeDataResponse
-import fingerfire.com.overwatch.features.patchs.data.response.PatchsDataResponse
 
 class PatchsChangeAdapter(
     private var patchsChangeList: List<PatchsChangeDataResponse>
