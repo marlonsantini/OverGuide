@@ -25,7 +25,7 @@
     <dimen name="corner_large">@dimen/size_16</dimen>
     <dimen name="corner">@dimen/size_8</dimen>
     <dimen name="corner_small">@dimen/size_4</dimen>
-    <dimen name="page_horizontal_padding">@dimen/size_20</dimen>
+    <dimen name="page_horizontal_padding">@dimen/size_12</dimen>
     <dimen name="poster_width">86dp</dimen>
     <dimen name="poster_height">86dp</dimen>
 
