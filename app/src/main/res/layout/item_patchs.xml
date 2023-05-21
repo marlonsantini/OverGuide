@@ -4,34 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="@dimen/margin_horizontal"
-    android:layout_marginTop="@dimen/margin_top"
     android:background="@color/light_blue"
+    android:paddingBottom="@dimen/page_bottom_padding"
     android:paddingStart="@dimen/page_horizontal_padding"
-    android:paddingTop="@dimen/margin_top"
-    android:paddingEnd="@dimen/page_horizontal_padding"
-    android:paddingBottom="@dimen/size_4">
+    android:paddingEnd="@dimen/page_horizontal_padding">
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/lLayout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="40dp"
-        android:background="@color/orange"
+        android:background="@drawable/rounded_background_orange"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/cvHero"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintStart_toStartOf="parent">
 
         <TextView
             android:id="@+id/tvName"
             style="@style/Subtitle2"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="110dp"
             android:gravity="center"
             android:textColor="@color/white"
             tools:text="Rainha Junker" />
+
     </LinearLayout>
 
     <androidx.cardview.widget.CardView
@@ -39,6 +35,7 @@
         android:layout_width="@dimen/avatar_review"
         android:layout_height="@dimen/avatar_review"
         android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
         android:src="@color/cardBackground"
         app:cardCornerRadius="@dimen/corner_radius"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,22 +57,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/size_12"
-        android:ellipsize="end"
         android:maxLines="5"
-        android:paddingBottom="@dimen/size_4"
+        android:text="Comentários dos desenvolvedores: Essas mudanças aumentam a presença da Rainha Junker na linha de frente, aumentando a cura a si mesma e a sustentabilidade ofensiva dela. Também aumentamos o tamanho do projétil de Lâmina Serrilhada para atingir com mais consistência."
         android:textColor="@color/white"
         android:textStyle="italic"
-        app:layout_constraintTop_toBottomOf="@+id/cvHero"
-        tools:text="Comentários dos desenvolvedores: Essas mudanças aumentam a presença da Rainha Junker na linha de frente, aumentando a cura a si mesma e a sustentabilidade ofensiva dela. Também aumentamos o tamanho do projétil de Lâmina Serrilhada para atingir com mais consistência." />
+        app:layout_constraintTop_toBottomOf="@+id/lLayout" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvPatchesChanges"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/size_12"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDevComment"
-        tools:listitem="@layout/item_patchs" />
-
+        app:layout_constraintTop_toBottomOf="@+id/tvDevComment" />
 </androidx.constraintlayout.widget.ConstraintLayout>

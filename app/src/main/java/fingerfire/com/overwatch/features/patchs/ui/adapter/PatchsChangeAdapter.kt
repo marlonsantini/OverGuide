@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import fingerfire.com.overwatch.databinding.ItemPatchsChangesBinding
+import fingerfire.com.overwatch.databinding.ItemChangesBinding
 import fingerfire.com.overwatch.features.patchs.data.response.PatchsChangeDataResponse
 
 class PatchsChangeAdapter(
@@ -13,7 +13,7 @@ class PatchsChangeAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PatchsChangeViewHolder {
         return PatchsChangeViewHolder(
-            ItemPatchsChangesBinding
+            ItemChangesBinding
                 .inflate(LayoutInflater.from(parent.context), parent, false)
         )
     }
@@ -33,6 +33,6 @@ class PatchsChangeAdapter(
         return patchsChangeList.size
     }
 
-    class PatchsChangeViewHolder(val binding: ItemPatchsChangesBinding) : RecyclerView.ViewHolder(binding.root)
+    class PatchsChangeViewHolder(val binding: ItemChangesBinding) : RecyclerView.ViewHolder(binding.root)
 
 }
