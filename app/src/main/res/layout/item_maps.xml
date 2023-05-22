@@ -4,16 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/margin_top"
     android:layout_marginHorizontal="@dimen/margin_horizontal"
-    app:cardCornerRadius="@dimen/corner_radius" >
+    android:layout_marginTop="@dimen/margin_top"
+    android:layout_marginBottom="@dimen/margin_bottom"
+    app:cardCornerRadius="@dimen/corner_radius">
 
     <ImageView
         android:id="@+id/imMap"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="220dp"
+        android:background="@color/light_blue"
         android:contentDescription="@string/hero_image"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         tools:ignore="ImageContrastCheck" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_gravity="bottom"
+        android:background="@color/orange" />
+
+    <TextView
+        android:id="@+id/tvMapName"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        style="@style/Font"
+        android:textAllCaps="true"
+        android:text="BUSAN"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
 
 </androidx.cardview.widget.CardView>

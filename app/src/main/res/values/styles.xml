@@ -32,4 +32,8 @@
         <item name="android:textSize">@dimen/text_14</item>
         <item name="android:textStyle">bold</item>
     </style>
+
+    <style name="Font">
+        <item name="fontFamily">@font/bank</item>
+    </style>
 </resources>

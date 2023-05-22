@@ -22,6 +22,7 @@ class MapsAdapter(
         with(holder) {
             with(mapsList[position]) {
                 binding.imMap.load(displayImage)
+                binding.tvMapName.text = displayName
 
             }
         }
