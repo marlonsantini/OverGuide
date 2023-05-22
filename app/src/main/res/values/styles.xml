@@ -29,11 +29,12 @@
     </style>
 
     <style name="Subtitle2">
-        <item name="android:textSize">@dimen/text_14</item>
+        <item name="android:textSize">@dimen/text_18</item>
+        <item name="fontFamily">@font/bank_hero</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="Font">
-        <item name="fontFamily">@font/bank</item>
+        <item name="fontFamily">@font/bank_map</item>
     </style>
 </resources>
