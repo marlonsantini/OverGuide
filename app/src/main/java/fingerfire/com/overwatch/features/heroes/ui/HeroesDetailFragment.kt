@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import coil.load
 import fingerfire.com.overwatch.databinding.FragmentHeroesDetailBinding
 import fingerfire.com.overwatch.features.heroes.data.response.HeroesDataResponse
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -41,15 +42,16 @@ class HeroesDetailFragment : Fragment() {
     }
 
     private fun initBackButtonClickListener() {
-        binding.backButtonImageView.setOnClickListener {
-            findNavController().popBackStack()
-        }
+//        binding.backButtonImageView.setOnClickListener {
+//            findNavController().popBackStack()
+//        }
     }
 
     private fun initUi(heroesDataResponse: HeroesDataResponse) {
         binding.apply {
             heroesDataResponse.let { item ->
-                binding.tvHeroesName.text = item.displayName
+                binding.ivHero.load(item.fullPortraitV2)
+                binding.tvName.text = item.displayName
             }
         }
     }
