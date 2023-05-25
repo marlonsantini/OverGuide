@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import coil.load
 import fingerfire.com.overwatch.databinding.FragmentHeroesDetailBinding
@@ -52,6 +51,10 @@ class HeroesDetailFragment : Fragment() {
             heroesDataResponse.let { item ->
                 binding.ivHero.load(item.fullPortraitV2)
                 binding.tvName.text = item.displayName
+                binding.tvDesc.text = item.description
+                binding.tvNameReal.text = item.developerName
+                binding.tvBase.text = item.location
+                binding.tvRole.text = item.role.displayName
             }
         }
     }

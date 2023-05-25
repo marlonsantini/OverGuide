@@ -9,5 +9,6 @@ data class HeroesDataResponse(
     val bustPortrait: String,
     val fullPortrait: String,
     val fullPortraitV2: String,
-    val fullPortraitV3: String
+    val fullPortraitV3: String,
+    val role: RoleResponse
 )
