@@ -5,15 +5,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import coil.load
 import fingerfire.com.overwatch.databinding.FragmentHeroesDetailBinding
 import fingerfire.com.overwatch.features.heroes.data.response.HeroesDataResponse
+import fingerfire.com.overwatch.features.heroes.ui.adapter.AbilitiesAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HeroesDetailFragment : Fragment() {
 
     private lateinit var binding: FragmentHeroesDetailBinding
+    private lateinit var abilitiesAdapter: AbilitiesAdapter
     private val args: HeroesDetailFragmentArgs by navArgs()
     private val viewModel: HeroesDetailViewModel by viewModel()
 
@@ -55,6 +58,23 @@ class HeroesDetailFragment : Fragment() {
                 binding.tvNameReal.text = item.developerName
                 binding.tvBase.text = item.location
                 binding.tvRole.text = item.role.displayName
+                abilitiesAdapter = AbilitiesAdapter(item.abilities, itemClick = {
+                    binding.tvAbilitiesName.text = it.displayName
+                    binding.tvAbilitiesDesc.text = it.description
+                    binding.ivAbilitiesImage.load(it.displayImage)
+
+                })
+                binding.rvAbilities.adapter = abilitiesAdapter
+
+                val firstAbility = item.abilities.firstOrNull()
+                firstAbility?.let {
+                    binding.tvAbilitiesName.text = it.displayName
+                    binding.tvAbilitiesDesc.text = it.description
+                    binding.ivAbilitiesImage.load(it.displayImage)
+                    binding.videoView.setVideoPath(it.displayVideo)
+                    binding.videoView.start()
+                    abilitiesAdapter.setSelectedItem(0)
+                }
             }
         }
     }

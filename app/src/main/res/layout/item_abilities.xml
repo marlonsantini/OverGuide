@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cvAbilities"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="1000dp"
+    android:layout_margin="10dp">
+
+    <ImageView
+        android:id="@+id/imAbilities"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:contentDescription="@string/hero_image"
+        android:background="@drawable/circle_background"
+        android:scaleType="centerInside"
+        android:src="@drawable/ow_logo" />
+
+</androidx.cardview.widget.CardView>
