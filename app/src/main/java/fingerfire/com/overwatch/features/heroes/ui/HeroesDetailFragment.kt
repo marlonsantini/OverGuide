@@ -5,10 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import coil.load
 import fingerfire.com.overwatch.databinding.FragmentHeroesDetailBinding
+import fingerfire.com.overwatch.features.heroes.data.response.AbilitiesResponse
 import fingerfire.com.overwatch.features.heroes.data.response.HeroesDataResponse
 import fingerfire.com.overwatch.features.heroes.ui.adapter.AbilitiesAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -52,30 +52,84 @@ class HeroesDetailFragment : Fragment() {
     private fun initUi(heroesDataResponse: HeroesDataResponse) {
         binding.apply {
             heroesDataResponse.let { item ->
-                binding.ivHero.load(item.fullPortraitV2)
-                binding.tvName.text = item.displayName
-                binding.tvDesc.text = item.description
-                binding.tvNameReal.text = item.developerName
-                binding.tvBase.text = item.location
-                binding.tvRole.text = item.role.displayName
+                loadDetail(item)
                 abilitiesAdapter = AbilitiesAdapter(item.abilities, itemClick = {
                     binding.tvAbilitiesName.text = it.displayName
                     binding.tvAbilitiesDesc.text = it.description
-                    binding.ivAbilitiesImage.load(it.displayImage)
-
+                    loadAbilityImage(it.displayImage)
+//                  playVideoWithLoading(it.displayVideo)
                 })
                 binding.rvAbilities.adapter = abilitiesAdapter
-
-                val firstAbility = item.abilities.firstOrNull()
-                firstAbility?.let {
-                    binding.tvAbilitiesName.text = it.displayName
-                    binding.tvAbilitiesDesc.text = it.description
-                    binding.ivAbilitiesImage.load(it.displayImage)
-                    binding.videoView.setVideoPath(it.displayVideo)
-                    binding.videoView.start()
-                    abilitiesAdapter.setSelectedItem(0)
-                }
+                selectFirstAbility(item.abilities)
             }
         }
     }
+
+    private fun loadDetail(item: HeroesDataResponse) {
+        binding.ivHero.load(item.fullPortraitV2)
+        binding.tvName.text = item.displayName
+        binding.tvDesc.text = item.description
+        binding.tvNameReal.text = item.developerName
+        binding.tvBase.text = item.location
+        binding.tvRole.text = item.role.displayName
+    }
+
+    private fun playVideoWithLoading(videoPath: String) {
+        binding.loadingProgressBar.visibility = View.VISIBLE
+
+        binding.videoView.setOnPreparedListener { mediaPlayer ->
+            // Ocultar o ProgressBar quando o vídeo estiver pronto para reprodução
+            binding.loadingProgressBar.visibility = View.GONE
+            mediaPlayer.start()
+        }
+
+        binding.videoView.setOnCompletionListener { mediaPlayer ->
+            // Parar a reprodução quando o vídeo terminar
+            mediaPlayer.stop()
+        }
+
+        binding.videoView.setOnErrorListener { _, _, _ ->
+            // Lidar com erros de reprodução do vídeo, se necessário
+            binding.loadingProgressBar.visibility = View.GONE
+            true
+        }
+
+        binding.videoView.setVideoPath(videoPath)
+        binding.videoView.start()
+    }
+
+    private fun loadAbilityImage(imageUri: String) {
+        binding.loadingProgressBar.visibility = View.VISIBLE
+
+        binding.ivAbilitiesImage.load(imageUri) {
+            crossfade(true)
+            listener(
+                onSuccess = { _, _ ->
+                    binding.loadingProgressBar.visibility = View.GONE
+                },
+                onError = { _, _ ->
+                    binding.loadingProgressBar.visibility = View.GONE
+                }
+            )
+        }
+    }
+
+
+
+
+    private fun selectFirstAbility(abilities: List<AbilitiesResponse>) {
+        val firstAbility = abilities.firstOrNull()
+        firstAbility?.let { firstItem ->
+            binding.tvAbilitiesName.text = firstItem.displayName
+            binding.tvAbilitiesDesc.text = firstItem.description
+            loadAbilityImage(firstItem.displayImage)
+//            playVideoWithLoading(firstItem.displayVideo)
+            abilitiesAdapter.setSelectedItem(0)
+        }
+    }
+
+
+
+
+
 }

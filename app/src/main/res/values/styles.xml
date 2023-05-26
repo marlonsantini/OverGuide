@@ -37,4 +37,14 @@
     <style name="Font">
         <item name="fontFamily">@font/bank_map</item>
     </style>
+
+    <style name="FontAbilitie">
+        <item name="fontFamily">@font/quantify_bold_name_abilitie</item>
+        <item name="android:textSize">@dimen/text_18</item>
+    </style>
+
+    <style name="FontDescAbilitie">
+        <item name="fontFamily">@font/gigasans_desc_abilitie</item>
+        <item name="android:textSize">@dimen/text_14</item>
+    </style>
 </resources>
