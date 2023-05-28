@@ -57,7 +57,6 @@ class HeroesDetailFragment : Fragment() {
                     binding.tvAbilitiesName.text = it.displayName
                     binding.tvAbilitiesDesc.text = it.description
                     loadAbilityImage(it.displayImage)
-//                  playVideoWithLoading(it.displayVideo)
                 })
                 binding.rvAbilities.adapter = abilitiesAdapter
                 selectFirstAbility(item.abilities)
@@ -65,37 +64,15 @@ class HeroesDetailFragment : Fragment() {
         }
     }
 
-    private fun loadDetail(item: HeroesDataResponse) {
-        binding.ivHero.load(item.fullPortraitV2)
-        binding.tvName.text = item.displayName
-        binding.tvDesc.text = item.description
-        binding.tvNameReal.text = item.developerName
-        binding.tvBase.text = item.location
-        binding.tvRole.text = item.role.displayName
-    }
-
-    private fun playVideoWithLoading(videoPath: String) {
-        binding.loadingProgressBar.visibility = View.VISIBLE
-
-        binding.videoView.setOnPreparedListener { mediaPlayer ->
-            // Ocultar o ProgressBar quando o vídeo estiver pronto para reprodução
-            binding.loadingProgressBar.visibility = View.GONE
-            mediaPlayer.start()
+    private fun loadDetail(heroesDataResponse: HeroesDataResponse) {
+        with(binding) {
+            ivHero.load(heroesDataResponse.fullPortraitV2)
+            tvName.text = heroesDataResponse.displayName
+            tvDesc.text = heroesDataResponse.description
+            tvNameReal.text = heroesDataResponse.developerName
+            tvBase.text = heroesDataResponse.location
+            tvRole.text = heroesDataResponse.role.displayName
         }
-
-        binding.videoView.setOnCompletionListener { mediaPlayer ->
-            // Parar a reprodução quando o vídeo terminar
-            mediaPlayer.stop()
-        }
-
-        binding.videoView.setOnErrorListener { _, _, _ ->
-            // Lidar com erros de reprodução do vídeo, se necessário
-            binding.loadingProgressBar.visibility = View.GONE
-            true
-        }
-
-        binding.videoView.setVideoPath(videoPath)
-        binding.videoView.start()
     }
 
     private fun loadAbilityImage(imageUri: String) {
@@ -114,22 +91,13 @@ class HeroesDetailFragment : Fragment() {
         }
     }
 
-
-
-
     private fun selectFirstAbility(abilities: List<AbilitiesResponse>) {
         val firstAbility = abilities.firstOrNull()
         firstAbility?.let { firstItem ->
             binding.tvAbilitiesName.text = firstItem.displayName
             binding.tvAbilitiesDesc.text = firstItem.description
             loadAbilityImage(firstItem.displayImage)
-//            playVideoWithLoading(firstItem.displayVideo)
             abilitiesAdapter.setSelectedItem(0)
         }
     }
-
-
-
-
-
 }
