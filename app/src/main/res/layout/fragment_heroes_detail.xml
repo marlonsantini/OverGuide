@@ -194,11 +194,11 @@
                         style="@style/FontDescAbilitie"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingHorizontal="12dp"
                         android:layout_marginTop="10dp"
+                        android:paddingHorizontal="12dp"
                         android:text="Lança uma granada que cura e aumenta a capacidade de cura em aliados, enquanto causa dano e impede que inimigos sejam curados."
-                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/tvAbilitiesName" />
 
                     <ImageView

@@ -4,15 +4,15 @@
     android:id="@+id/cvAbilities"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="1000dp"
-    android:layout_margin="10dp">
+    android:layout_margin="10dp"
+    app:cardCornerRadius="1000dp">
 
     <ImageView
         android:id="@+id/imAbilities"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:contentDescription="@string/hero_image"
         android:background="@drawable/circle_background"
+        android:contentDescription="@string/hero_image"
         android:scaleType="centerInside"
         android:src="@drawable/ow_logo" />
 

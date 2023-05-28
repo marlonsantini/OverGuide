@@ -7,17 +7,17 @@
     <fragment
         android:id="@+id/mapFragment"
         android:name="fingerfire.com.overwatch.features.maps.ui.MapsFragment">
-<!--        <action-->
-<!--            android:id="@+id/action_mapsFragment_to_mapDetailFragment"-->
-<!--            app:destination="@id/mapDetailFragment" />-->
+        <!--        <action-->
+        <!--            android:id="@+id/action_mapsFragment_to_mapDetailFragment"-->
+        <!--            app:destination="@id/mapDetailFragment" />-->
     </fragment>
-<!--    <fragment-->
-<!--        android:id="@+id/mapDetailFragment"-->
-<!--        android:name="fingerfire.com.valorant.features.maps.ui.MapDetailFragment"-->
-<!--        tools:layout="@layout/fragment_map_detail">-->
+    <!--    <fragment-->
+    <!--        android:id="@+id/mapDetailFragment"-->
+    <!--        android:name="fingerfire.com.valorant.features.maps.ui.MapDetailFragment"-->
+    <!--        tools:layout="@layout/fragment_map_detail">-->
 
-<!--        <argument-->
-<!--            android:name="uuid"-->
-<!--            app:argType="string" />-->
-<!--    </fragment>-->
+    <!--        <argument-->
+    <!--            android:name="uuid"-->
+    <!--            app:argType="string" />-->
+    <!--    </fragment>-->
 </navigation>

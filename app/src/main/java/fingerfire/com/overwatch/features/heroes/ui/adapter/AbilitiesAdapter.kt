@@ -15,7 +15,8 @@ class AbilitiesAdapter(
 ) : RecyclerView.Adapter<AbilitiesAdapter.AbilitiesViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AbilitiesViewHolder {
-        val binding = ItemAbilitiesBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            ItemAbilitiesBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return AbilitiesViewHolder(binding)
     }
 

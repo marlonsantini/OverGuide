@@ -1,8 +1,8 @@
 package fingerfire.com.overwatch
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
@@ -35,12 +35,15 @@ class MainActivity : AppCompatActivity() {
                 R.id.heroesFragment -> {
                     binding.bottomNavigation.visibility = View.VISIBLE
                 }
+
                 R.id.mapFragment -> {
                     binding.bottomNavigation.visibility = View.VISIBLE
                 }
+
                 R.id.patchsFragment -> {
                     binding.bottomNavigation.visibility = View.VISIBLE
                 }
+
                 else -> {
                     binding.bottomNavigation.visibility = View.GONE
                 }

@@ -7,18 +7,18 @@
 
     <fragment
         android:id="@+id/heroesFragment"
-                android:name="fingerfire.com.overwatch.features.heroes.ui.HeroesFragment">
-                <action
-                    android:id="@+id/action_heroesFragment_to_heroesDetailFragment"
-                    app:destination="@id/heroesDetailFragment" />
+        android:name="fingerfire.com.overwatch.features.heroes.ui.HeroesFragment">
+        <action
+            android:id="@+id/action_heroesFragment_to_heroesDetailFragment"
+            app:destination="@id/heroesDetailFragment" />
     </fragment>
-        <fragment
-            android:id="@+id/heroesDetailFragment"
-            android:name="fingerfire.com.overwatch.features.heroes.ui.HeroesDetailFragment"
-            tools:layout="@layout/fragment_heroes_detail">
+    <fragment
+        android:id="@+id/heroesDetailFragment"
+        android:name="fingerfire.com.overwatch.features.heroes.ui.HeroesDetailFragment"
+        tools:layout="@layout/fragment_heroes_detail">
 
-            <argument
-                android:name="id"
-                app:argType="string" />
-        </fragment>
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
 </navigation>

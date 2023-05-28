@@ -27,13 +27,13 @@
 
     <TextView
         android:id="@+id/tvMapName"
+        style="@style/Font"
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:layout_gravity="bottom"
         android:gravity="center"
-        style="@style/Font"
-        android:textAllCaps="true"
         android:text="BUSAN"
+        android:textAllCaps="true"
         android:textColor="@color/white"
         android:textSize="30sp" />
 

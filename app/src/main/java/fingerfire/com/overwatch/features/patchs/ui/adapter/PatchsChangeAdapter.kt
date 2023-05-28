@@ -33,6 +33,7 @@ class PatchsChangeAdapter(
         return patchsChangeList.size
     }
 
-    class PatchsChangeViewHolder(val binding: ItemChangesBinding) : RecyclerView.ViewHolder(binding.root)
+    class PatchsChangeViewHolder(val binding: ItemChangesBinding) :
+        RecyclerView.ViewHolder(binding.root)
 
 }
