@@ -17,7 +17,7 @@
         <ImageView
             android:id="@+id/ivHero"
             android:layout_width="match_parent"
-            android:layout_height="184dp" />
+            android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/tvName"
@@ -48,6 +48,7 @@
             android:orientation="vertical"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
+            android:paddingBottom="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -205,6 +206,18 @@
                         android:id="@+id/ivAbilitiesImage"
                         android:layout_width="match_parent"
                         android:layout_height="180dp"
+                        android:layout_marginTop="12dp"
+                        android:scaleType="fitXY"
+                        android:src="@color/orange"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvAbilitiesDesc" />
+
+                    <com.google.android.exoplayer2.ui.PlayerView
+                        android:id="@+id/ivAbilitiesVideo"
+                        android:layout_width="match_parent"
+                        android:layout_height="210dp"
                         android:layout_marginTop="12dp"
                         android:scaleType="fitXY"
                         android:src="@color/orange"

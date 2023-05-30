@@ -1,7 +1,10 @@
 package fingerfire.com.overwatch.features.heroes.ui.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.ProgressBar
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import fingerfire.com.overwatch.databinding.ItemHeroesBinding
@@ -22,7 +25,7 @@ class HeroesAdapter(
     override fun onBindViewHolder(holder: HeroesViewHolder, position: Int) {
         with(holder) {
             with(heroesList[position]) {
-                binding.imHeroes.load(bustPortrait)
+                loadHeroImage(bustPortrait, binding.imHeroes, binding.loadingProgressBar)
 
                 binding.imHeroes.setOnClickListener {
                     itemClick.invoke(heroesList[position])
@@ -33,6 +36,22 @@ class HeroesAdapter(
 
     override fun getItemCount(): Int {
         return heroesList.size
+    }
+
+    private fun loadHeroImage(imageUri: String, imageView: ImageView, progressBar: ProgressBar) {
+        progressBar.visibility = View.VISIBLE
+
+        imageView.load(imageUri) {
+            crossfade(true)
+            listener(
+                onSuccess = { _, _ ->
+                    progressBar.visibility = View.GONE
+                },
+                onError = { _, _ ->
+                    progressBar.visibility = View.GONE
+                }
+            )
+        }
     }
 
 

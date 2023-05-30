@@ -1,6 +1,7 @@
 package fingerfire.com.overwatch
 
 import android.app.Application
+import androidx.appcompat.app.AppCompatDelegate
 import fingerfire.com.overwatch.di.ApiModules
 import fingerfire.com.overwatch.di.NetworkModules
 import fingerfire.com.overwatch.features.heroes.di.HeroesDataModules
@@ -14,6 +15,7 @@ import org.koin.core.context.startKoin
 class OverwatchApplication : Application() {
     override fun onCreate() {
         super.onCreate()
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
 
         startKoin {
             modules(

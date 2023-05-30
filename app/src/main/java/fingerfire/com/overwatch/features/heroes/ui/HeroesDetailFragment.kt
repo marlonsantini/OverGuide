@@ -1,5 +1,6 @@
 package fingerfire.com.overwatch.features.heroes.ui
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import coil.load
+import com.google.android.exoplayer2.ExoPlayer
+import com.google.android.exoplayer2.MediaItem
+import com.google.android.exoplayer2.Player
 import fingerfire.com.overwatch.databinding.FragmentHeroesDetailBinding
 import fingerfire.com.overwatch.features.heroes.data.response.AbilitiesResponse
 import fingerfire.com.overwatch.features.heroes.data.response.HeroesDataResponse
@@ -20,6 +24,7 @@ class HeroesDetailFragment : Fragment() {
     private val args: HeroesDetailFragmentArgs by navArgs()
     private val viewModel: HeroesDetailViewModel by viewModel()
 
+    private lateinit var player: ExoPlayer
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -56,7 +61,8 @@ class HeroesDetailFragment : Fragment() {
                 abilitiesAdapter = AbilitiesAdapter(item.abilities, itemClick = {
                     binding.tvAbilitiesName.text = it.displayName
                     binding.tvAbilitiesDesc.text = it.description
-                    loadAbilityImage(it.displayImage)
+                    preparePlayer(it.displayVideo)
+                    //loadAbilityImage(it.displayImage)
                 })
                 binding.rvAbilities.adapter = abilitiesAdapter
                 selectFirstAbility(item.abilities)
@@ -96,8 +102,55 @@ class HeroesDetailFragment : Fragment() {
         firstAbility?.let { firstItem ->
             binding.tvAbilitiesName.text = firstItem.displayName
             binding.tvAbilitiesDesc.text = firstItem.description
-            loadAbilityImage(firstItem.displayImage)
+            preparePlayer(firstItem.displayVideo)
+//            loadAbilityImage(firstItem.displayImage)
             abilitiesAdapter.setSelectedItem(0)
         }
+    }
+
+    private fun preparePlayer(url: String) {
+        player = ExoPlayer.Builder(this.requireContext()).build()
+        player.clearVideoSurface()
+        player.setVideoSurface(null)
+
+        binding.ivAbilitiesVideo.player = player
+
+
+
+        val mediaItem = MediaItem.fromUri(Uri.parse(url))
+        player.setMediaItem(mediaItem)
+        player.prepare()
+        player.play()
+
+        binding.ivAbilitiesVideo.useController = false
+        binding.ivAbilitiesVideo.controllerAutoShow = false
+        binding.ivAbilitiesVideo.controllerHideOnTouch = false
+        binding.ivAbilitiesVideo.controllerShowTimeoutMs = 0
+
+        binding.loadingProgressBar.visibility = View.VISIBLE
+
+        player.addListener(object : Player.Listener {
+            override fun onPlayerStateChanged(playWhenReady: Boolean, playbackState: Int) {
+                when (playbackState) {
+                    Player.STATE_BUFFERING -> {
+                        binding.loadingProgressBar.visibility = View.VISIBLE
+                    }
+                    Player.STATE_READY, Player.STATE_ENDED -> {
+                        binding.loadingProgressBar.visibility = View.GONE
+                    }
+                    else -> {
+                        // Outros estados do player
+                    }
+                }
+            }
+        })
+    }
+
+    override fun onPause() {
+        super.onPause()
+        // Libera recursos do player
+        player.clearVideoSurface()
+        player.setVideoSurface(null)
+        player.release()
     }
 }
