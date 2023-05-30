@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import fingerfire.com.overwatch.databinding.FragmentHeroesBinding
 import fingerfire.com.overwatch.features.heroes.data.response.HeroesDataResponse
 import fingerfire.com.overwatch.features.heroes.ui.adapter.HeroesAdapter
@@ -18,6 +19,7 @@ class HeroesFragment : Fragment() {
     private lateinit var heroesAdapter: HeroesAdapter
     private val viewModel: HeroesViewModel by viewModel()
 
+    private var currentPosition = 0
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -48,7 +50,17 @@ class HeroesFragment : Fragment() {
     private fun initRecyclerView() {
         binding.recyclerView.layoutManager =
             GridLayoutManager(activity, 2)
+        binding.recyclerView.scrollToPosition(currentPosition)
         binding.recyclerView.setHasFixedSize(true)
+
+        binding.recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+
+                currentPosition = (binding.recyclerView.layoutManager as GridLayoutManager)
+                    .findFirstVisibleItemPosition()
+            }
+        })
     }
 
     private fun initAdapter(heroesResponse: List<HeroesDataResponse>) {

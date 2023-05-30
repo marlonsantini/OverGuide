@@ -17,7 +17,6 @@ class HeroesViewModel(private val heroesRepository: HeroesRepository) : ViewMode
             return heroesMutableLiveData
         }
 
-
     fun getHeroes() {
         viewModelScope.launch {
             val heroesResponse = heroesRepository.loadHeroes()
@@ -28,5 +27,4 @@ class HeroesViewModel(private val heroesRepository: HeroesRepository) : ViewMode
             }
         }
     }
-
 }

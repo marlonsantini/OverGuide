@@ -149,6 +149,7 @@ class HeroesDetailFragment : Fragment() {
     override fun onPause() {
         super.onPause()
         // Libera recursos do player
+        player.stop()
         player.clearVideoSurface()
         player.setVideoSurface(null)
         player.release()
