@@ -5,4 +5,6 @@
     <string name="patch">Patch</string>
     <string name="title_heroes">Escolha</string>
     <string name="hero_image">Imagem de heroi</string>
+    <string name="internet">Verifique sua conexão</string>
+    <string name="failResponse">Tente novamente mais tarde</string>
 </resources>

@@ -6,7 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import fingerfire.com.overwatch.R
 import fingerfire.com.overwatch.databinding.FragmentMapsBinding
+import fingerfire.com.overwatch.extensions.isInternetAvailable
+import fingerfire.com.overwatch.extensions.showDialogOverwatch
 import fingerfire.com.overwatch.features.maps.data.response.MapsDataResponse
 import fingerfire.com.overwatch.features.maps.ui.adapter.MapsAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -27,10 +30,13 @@ class MapsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        observerMaps()
+        if (!requireActivity().isInternetAvailable()) {
+            requireActivity().showDialogOverwatch(R.string.internet)
+        } else {
+            observerMaps()
 
-        viewModel.getMaps()
-
+            viewModel.getMaps()
+        }
     }
 
     private fun observerMaps() {
@@ -39,7 +45,7 @@ class MapsFragment : Fragment() {
                 initRecyclerView()
                 initAdapter(viewState.sucess)
             } else if (viewState.failure) {
-
+                requireActivity().showDialogOverwatch(R.string.failResponse)
             }
         }
     }

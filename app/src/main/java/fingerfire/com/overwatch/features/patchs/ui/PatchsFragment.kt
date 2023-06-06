@@ -6,7 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import fingerfire.com.overwatch.R
 import fingerfire.com.overwatch.databinding.FragmentPatchsBinding
+import fingerfire.com.overwatch.extensions.isInternetAvailable
+import fingerfire.com.overwatch.extensions.showDialogOverwatch
 import fingerfire.com.overwatch.features.patchs.data.response.PatchsDataResponse
 import fingerfire.com.overwatch.features.patchs.ui.adapter.PatchsAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -27,10 +30,13 @@ class PatchsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        observerPatchs()
+        if (!requireActivity().isInternetAvailable()) {
+            requireActivity().showDialogOverwatch(R.string.internet)
+        } else {
+            observerPatchs()
 
-        viewModel.getPatchs()
-
+            viewModel.getPatchs()
+        }
     }
 
     private fun observerPatchs() {
@@ -39,7 +45,7 @@ class PatchsFragment : Fragment() {
                 initRecyclerView()
                 initAdapter(viewState.sucess)
             } else if (viewState.failure) {
-
+                requireActivity().showDialogOverwatch(R.string.failResponse)
             }
         }
     }

@@ -8,7 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import fingerfire.com.overwatch.R
 import fingerfire.com.overwatch.databinding.FragmentHeroesBinding
+import fingerfire.com.overwatch.extensions.isInternetAvailable
+import fingerfire.com.overwatch.extensions.showDialogOverwatch
 import fingerfire.com.overwatch.features.heroes.data.response.HeroesDataResponse
 import fingerfire.com.overwatch.features.heroes.ui.adapter.HeroesAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -30,10 +33,13 @@ class HeroesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        observerHeroes()
+        if (!requireActivity().isInternetAvailable()) {
+            requireActivity().showDialogOverwatch(R.string.internet)
+        } else {
+            observerHeroes()
 
-        viewModel.getHeroes()
-
+            viewModel.getHeroes()
+        }
     }
 
     private fun observerHeroes() {
@@ -42,6 +48,7 @@ class HeroesFragment : Fragment() {
                 initRecyclerView()
                 initAdapter(viewState.sucess)
             } else if (viewState.failure) {
+                requireActivity().showDialogOverwatch(R.string.failResponse)
 
             }
         }
