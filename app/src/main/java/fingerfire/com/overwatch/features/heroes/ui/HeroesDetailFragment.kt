@@ -15,12 +15,14 @@ import fingerfire.com.overwatch.databinding.FragmentHeroesDetailBinding
 import fingerfire.com.overwatch.features.heroes.data.response.AbilitiesResponse
 import fingerfire.com.overwatch.features.heroes.data.response.HeroesDataResponse
 import fingerfire.com.overwatch.features.heroes.ui.adapter.AbilitiesAdapter
+import fingerfire.com.overwatch.features.heroes.ui.adapter.HistoryAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HeroesDetailFragment : Fragment() {
 
     private lateinit var binding: FragmentHeroesDetailBinding
     private lateinit var abilitiesAdapter: AbilitiesAdapter
+    private lateinit var historyAdapter: HistoryAdapter
     private val args: HeroesDetailFragmentArgs by navArgs()
     private val viewModel: HeroesDetailViewModel by viewModel()
 
@@ -66,6 +68,10 @@ class HeroesDetailFragment : Fragment() {
                 })
                 binding.rvAbilities.adapter = abilitiesAdapter
                 selectFirstAbility(item.abilities)
+
+                historyAdapter = HistoryAdapter(item.chapters, requireContext())
+                binding.tvDescHistory.text = item.history
+                binding.rvHistory.adapter = historyAdapter
             }
         }
     }
@@ -116,7 +122,6 @@ class HeroesDetailFragment : Fragment() {
         binding.ivAbilitiesVideo.player = player
 
 
-
         val mediaItem = MediaItem.fromUri(Uri.parse(url))
         player.setMediaItem(mediaItem)
         player.prepare()
@@ -130,14 +135,17 @@ class HeroesDetailFragment : Fragment() {
         binding.loadingProgressBar.visibility = View.VISIBLE
 
         player.addListener(object : Player.Listener {
+            @Deprecated("Deprecated in Java")
             override fun onPlayerStateChanged(playWhenReady: Boolean, playbackState: Int) {
                 when (playbackState) {
                     Player.STATE_BUFFERING -> {
                         binding.loadingProgressBar.visibility = View.VISIBLE
                     }
+
                     Player.STATE_READY, Player.STATE_ENDED -> {
                         binding.loadingProgressBar.visibility = View.GONE
                     }
+
                     else -> {
                         // Outros estados do player
                     }

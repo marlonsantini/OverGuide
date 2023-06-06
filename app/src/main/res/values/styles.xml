@@ -45,6 +45,6 @@
 
     <style name="FontDescAbilitie">
         <item name="fontFamily">@font/gigasans_desc_abilitie</item>
-        <item name="android:textSize">@dimen/text_14</item>
+        <item name="android:textSize">@dimen/text_15</item>
     </style>
 </resources>

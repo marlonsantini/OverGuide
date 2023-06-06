@@ -11,5 +11,7 @@ data class HeroesDataResponse(
     val fullPortraitV2: String,
     val fullPortraitV3: String,
     val role: RoleResponse,
-    val abilities: List<AbilitiesResponse>
+    val abilities: List<AbilitiesResponse>,
+    val history: String,
+    val chapters: List<HistoryResponse>
 )
