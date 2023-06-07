@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import fingerfire.com.overwatch.R
 import fingerfire.com.overwatch.databinding.FragmentHeroesBinding
+import fingerfire.com.overwatch.extensions.initAdMob
 import fingerfire.com.overwatch.extensions.isInternetAvailable
 import fingerfire.com.overwatch.extensions.showDialogOverwatch
 import fingerfire.com.overwatch.features.heroes.data.response.HeroesDataResponse
@@ -47,6 +48,7 @@ class HeroesFragment : Fragment() {
             if (viewState.sucess != null) {
                 initRecyclerView()
                 initAdapter(viewState.sucess)
+                binding.adView.initAdMob()
             } else if (viewState.failure) {
                 requireActivity().showDialogOverwatch(R.string.failResponse)
 
@@ -59,6 +61,7 @@ class HeroesFragment : Fragment() {
             GridLayoutManager(activity, 2)
         binding.recyclerView.scrollToPosition(currentPosition)
         binding.recyclerView.setHasFixedSize(true)
+        binding.recyclerView.onFlingListener = null
 
         binding.recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {

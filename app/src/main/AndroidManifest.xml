@@ -16,6 +16,9 @@
         android:theme="@style/Theme.Overwatch"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-7640890994209260~6055848591" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
