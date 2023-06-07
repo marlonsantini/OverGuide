@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'androidx.navigation.safeargs.kotlin'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -79,4 +80,13 @@ dependencies {
 
     //Exoplayer
     implementation 'com.google.android.exoplayer:exoplayer:2.18.7'
+
+    //Firebase
+    implementation platform('com.google.firebase:firebase-bom:31.2.3')
+    implementation 'com.google.firebase:firebase-crashlytics-ktx:18.3.7'
+    implementation 'com.google.firebase:firebase-analytics-ktx:21.3.0'
+
+    //Admob
+    implementation 'com.google.android.gms:play-services-ads:22.1.0'
+
 }
