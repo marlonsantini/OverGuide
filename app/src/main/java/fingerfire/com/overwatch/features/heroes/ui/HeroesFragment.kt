@@ -75,7 +75,7 @@ class HeroesFragment : Fragment() {
 
     private fun initAdapter(heroesResponse: List<HeroesDataResponse>) {
         heroesAdapter = HeroesAdapter(heroesResponse, itemClick = {
-            it._id.let { _id ->
+            it._id?.let { _id ->
                 findNavController().navigate(
                     HeroesFragmentDirections.actionHeroesFragmentToHeroesDetailFragment(
                         _id

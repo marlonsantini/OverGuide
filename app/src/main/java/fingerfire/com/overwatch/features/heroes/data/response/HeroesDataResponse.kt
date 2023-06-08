@@ -1,7 +1,7 @@
 package fingerfire.com.overwatch.features.heroes.data.response
 
 data class HeroesDataResponse(
-    val _id: String,
+    val _id: String?,
     val displayName: String,
     val description: String,
     val developerName: String,
