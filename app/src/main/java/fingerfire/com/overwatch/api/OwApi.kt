@@ -8,7 +8,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface OwApi {
-    @GET("heroes")
+    @GET("/heroes")
     suspend fun getHeroes(
     ): Response<List<HeroesDataResponse>>
 
