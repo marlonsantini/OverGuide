@@ -1,5 +1,6 @@
 package fingerfire.com.overwatch.network
 
+import fingerfire.com.overwatch.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -8,7 +9,7 @@ import java.util.concurrent.TimeUnit
 
 object SetupRetrofit {
 
-    private const val BASE_URL = "https://nodejs-production-7713.up.railway.app/"
+    private const val BASE_URL = BuildConfig.BASE_URL
 
     private fun client() = OkHttpClient.Builder()
         .connectTimeout(10, TimeUnit.SECONDS)
