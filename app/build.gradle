@@ -8,6 +8,16 @@ plugins {
 }
 
 android {
+
+    signingConfigs {
+        release {
+            storeFile file("${rootProject.projectDir}/${storeFile}")
+            storePassword "${storePassword}"
+            keyAlias "${keyAlias}"
+            keyPassword "${keyPassword}"
+        }
+    }
+
     namespace 'fingerfire.com.overwatch'
     compileSdk 33
 
@@ -15,14 +25,20 @@ android {
         applicationId "fingerfire.com.overwatch"
         minSdk 26
         targetSdk 33
-        versionCode 5
-        versionName "1.4"
+        versionCode 9
+        versionName "1.8"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file("local.properties").newDataInputStream())
+
+        buildConfigField "String", "BASE_URL", "\"${properties.getProperty("BASE_URL")}\""
     }
 
     buildTypes {
         release {
+            signingConfig signingConfigs.release
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
