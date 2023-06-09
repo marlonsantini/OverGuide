@@ -1,9 +1,13 @@
 package fingerfire.com.overwatch.features.heroes.data.response
 
+import androidx.annotation.Keep
+import com.google.gson.annotations.SerializedName
+
+@Keep
 data class HistoryResponse(
-    val session: String,
-    val description: String,
-    val displayIcon: String,
+    @SerializedName("session") val session: String,
+    @SerializedName("description") val description: String,
+    @SerializedName("displayIcon") val displayIcon: String
 ) {
     var isExpanded: Boolean = false
 }

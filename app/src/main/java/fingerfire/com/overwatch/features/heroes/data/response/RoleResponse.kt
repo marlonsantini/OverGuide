@@ -1,7 +1,11 @@
 package fingerfire.com.overwatch.features.heroes.data.response
 
+import androidx.annotation.Keep
+import com.google.gson.annotations.SerializedName
+
+@Keep
 data class RoleResponse(
-    val description: String,
-    val displayIcon: String,
-    val displayName: String
+    @SerializedName("description") val description: String,
+    @SerializedName("displayIcon") val displayIcon: String,
+    @SerializedName("displayName") val displayName: String
 )

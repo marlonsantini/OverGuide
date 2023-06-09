@@ -1,9 +1,13 @@
 package fingerfire.com.overwatch.features.patchs.data.response
 
+import androidx.annotation.Keep
+import com.google.gson.annotations.SerializedName
+
+@Keep
 data class PatchsDataResponse(
-    val displayName: String,
-    val roleType: String,
-    val displayImage: String,
-    val devComment: String,
-    val changes: List<PatchsChangeDataResponse>
+    @SerializedName("displayName") val displayName: String,
+    @SerializedName("roleType") val roleType: String,
+    @SerializedName("displayImage") val displayImage: String,
+    @SerializedName("devComment") val devComment: String,
+    @SerializedName("changes") val changes: List<PatchsChangeDataResponse>
 )
