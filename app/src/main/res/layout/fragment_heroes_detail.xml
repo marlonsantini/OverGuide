@@ -214,7 +214,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/tvAbilitiesDesc" />
 
-                    <com.google.android.exoplayer2.ui.PlayerView
+                    <androidx.media3.ui.PlayerView
                         android:id="@+id/ivAbilitiesVideo"
                         android:layout_width="match_parent"
                         android:layout_height="210dp"

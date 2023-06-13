@@ -25,8 +25,8 @@ android {
         applicationId "fingerfire.com.overwatch"
         minSdk 26
         targetSdk 33
-        versionCode 9
-        versionName "1.8"
+        versionCode 10
+        versionName "1.9"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
@@ -87,11 +87,13 @@ dependencies {
     implementation 'io.coil-kt:coil:2.2.2'
 
     //Navigation
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.6.0'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.6.0'
 
     //Exoplayer
-    implementation 'com.google.android.exoplayer:exoplayer:2.18.7'
+    implementation 'androidx.media3:media3-exoplayer:1.0.2'
+    implementation 'androidx.media3:media3-ui:1.0.2'
+    implementation 'androidx.media3:media3-exoplayer-dash:1.0.2'
 
     //Firebase
     implementation platform('com.google.firebase:firebase-bom:31.2.3')
