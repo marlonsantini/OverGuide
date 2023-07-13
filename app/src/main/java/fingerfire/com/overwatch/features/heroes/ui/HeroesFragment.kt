@@ -51,7 +51,6 @@ class HeroesFragment : Fragment() {
                 binding.adView.initAdMob()
             } else if (viewState.failure) {
                 requireActivity().showDialogOverwatch(R.string.failResponse)
-
             }
         }
     }

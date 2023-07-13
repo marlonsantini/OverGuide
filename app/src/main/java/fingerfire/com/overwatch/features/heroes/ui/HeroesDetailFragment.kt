@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.media3.common.MediaItem
 import androidx.media3.common.Player
 import androidx.media3.exoplayer.ExoPlayer
+import androidx.media3.exoplayer.trackselection.DefaultTrackSelector
 import androidx.navigation.fragment.navArgs
 import coil.load
 import fingerfire.com.overwatch.databinding.FragmentHeroesDetailBinding
@@ -36,13 +37,17 @@ class HeroesDetailFragment : Fragment() {
         return binding.root
     }
 
+    @androidx.annotation.OptIn(androidx.media3.common.util.UnstableApi::class)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initViewModel()
         initBackButtonClickListener()
 
         // Inicialize o player aqui
-        player = ExoPlayer.Builder(requireContext()).build()
+        val trackSelector = DefaultTrackSelector(requireContext())
+        player = ExoPlayer.Builder(requireContext())
+            .setTrackSelector(trackSelector)
+            .build()
     }
 
     private fun initViewModel() {

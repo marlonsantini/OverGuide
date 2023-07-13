@@ -94,6 +94,7 @@ dependencies {
     implementation 'androidx.media3:media3-exoplayer:1.0.2'
     implementation 'androidx.media3:media3-ui:1.0.2'
     implementation 'androidx.media3:media3-exoplayer-dash:1.0.2'
+    implementation 'androidx.media3:media3-transformer:1.0.2'
 
     //Firebase
     implementation platform('com.google.firebase:firebase-bom:31.2.3')
