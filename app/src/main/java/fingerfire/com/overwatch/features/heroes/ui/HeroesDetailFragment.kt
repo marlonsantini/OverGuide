@@ -13,7 +13,6 @@ import fingerfire.com.overwatch.R
 import fingerfire.com.overwatch.databinding.FragmentHeroesDetailBinding
 import fingerfire.com.overwatch.features.heroes.data.response.HeroesDataResponse
 import fingerfire.com.overwatch.features.heroes.ui.adapter.ViewPagerAdapter
-import fingerfire.com.overwatch.features.maps.ui.MapsFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HeroesDetailFragment : Fragment() {
@@ -63,11 +62,11 @@ class HeroesDetailFragment : Fragment() {
             "Perfil"
         ) // Substitua TabFragment1() pelo seu primeiro Fragment
         adapter.addFragment(
-            MapsFragment(),
+            HeroesAbilitiesFragment(heroesDataResponse),
             "Habilidades"
         ) // Substitua TabFragment2() pelo seu segundo Fragment
         adapter.addFragment(
-            MapsFragment(),
+            HeroesHistoryFragment(heroesDataResponse),
             "Historia"
         ) // Substitua TabFragment3() pelo seu terceiro Fragment
 
