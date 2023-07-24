@@ -37,6 +37,8 @@ class HeroesProfileFragment(private val heroesDataResponse: HeroesDataResponse) 
             tvNameReal.text = heroesDataResponse.developerName
             tvBase.text = heroesDataResponse.location
             tvRole.text = heroesDataResponse.role.displayName
+            tvLife.text = heroesDataResponse.life
+            tvShield.text = heroesDataResponse.shield
 
             heroesDataResponse.let { item ->
                 initRecyclerView()

@@ -10,6 +10,8 @@ data class HeroesDataResponse(
     @SerializedName("description") val description: String,
     @SerializedName("developerName") val developerName: String,
     @SerializedName("location") val location: String,
+    @SerializedName("life") val life: String,
+    @SerializedName("shield") val shield: String,
     @SerializedName("bustPortrait") val bustPortrait: String,
     @SerializedName("fullPortrait") val fullPortrait: String,
     @SerializedName("fullPortraitV2") val fullPortraitV2: String,
