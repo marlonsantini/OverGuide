@@ -14,7 +14,11 @@ data class HeroesDataResponse(
     @SerializedName("fullPortrait") val fullPortrait: String,
     @SerializedName("fullPortraitV2") val fullPortraitV2: String,
     @SerializedName("fullPortraitV3") val fullPortraitV3: String,
+    @SerializedName("bustMini") val bustMini: String,
+    @SerializedName("fullHero") val fullHero: String,
     @SerializedName("role") val role: RoleResponse,
+    @SerializedName("combo") val combo: List<ComboResponse>,
+    @SerializedName("weak") val weak: List<WeakResponse>,
     @SerializedName("abilities") val abilities: List<AbilitiesResponse>,
     @SerializedName("history") val history: String,
     @SerializedName("chapters") val chapters: List<HistoryResponse>
