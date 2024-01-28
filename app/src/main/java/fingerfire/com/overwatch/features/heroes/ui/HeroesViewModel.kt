@@ -13,9 +13,8 @@ class HeroesViewModel(private val heroesRepository: HeroesRepository) : ViewMode
     private val heroesMutableLiveData: MutableLiveData<HeroesViewState> =
         MutableLiveData<HeroesViewState>()
     val heroesLiveData: LiveData<HeroesViewState>
-        get() {
-            return heroesMutableLiveData
-        }
+        get() = heroesMutableLiveData
+
 
     fun getHeroes() {
         viewModelScope.launch {
