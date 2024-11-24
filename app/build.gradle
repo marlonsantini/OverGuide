@@ -18,11 +18,11 @@ android {
         }
     }
 
-    namespace 'fingerfire.com.overwatch'
+    namespace 'fingerfire.com.overguide'
     compileSdk 33
 
     defaultConfig {
-        applicationId "fingerfire.com.overwatch"
+        applicationId "fingerfire.com.overguide"
         minSdk 26
         targetSdk 33
         versionCode 1

@@ -1,44 +1,26 @@
 {
   "project_info": {
-    "project_number": "11954663544",
-    "project_id": "overwatch-info",
-    "storage_bucket": "overwatch-info.appspot.com"
+    "project_number": "563791821937",
+    "project_id": "overguide-fd5c4",
+    "storage_bucket": "overguide-fd5c4.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:11954663544:android:00cc7183c8aa2b15533d8d",
+        "mobilesdk_app_id": "1:563791821937:android:6cdb412c1a7b36276e2fd0",
         "android_client_info": {
-          "package_name": "fingerfire.com.overwatch"
+          "package_name": "fingerfire.com.overguide"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "11954663544-l6vktucbj0tuj6o0eiueht3hupttnju7.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "fingerfire.com.overwatch",
-            "certificate_hash": "c379e25c6e97f4bb67bec19c366ea2a06f358564"
-          }
-        },
-        {
-          "client_id": "11954663544-9c0gh68e8khb029ei8h00kufc00m02nb.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBCbgQ_EfOYCKkfh8i2md2p9ZZZRG6cEBg"
+          "current_key": "AIzaSyCAKljcdQCggFxWhh9o2Uv4ly-TlMeuDGU"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "11954663544-9c0gh68e8khb029ei8h00kufc00m02nb.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

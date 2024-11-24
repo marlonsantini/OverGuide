@@ -18,12 +18,12 @@ class PatchsChangeAdapter(
 
     override fun onBindViewHolder(holder: PatchsChangeViewHolder, position: Int) {
         val patch = patchsChangeList?.get(position)
-        patch?.let { patch ->
+        patch?.let { item  ->
             with(holder.binding) {
-                imAbilities.load(patch.displayIcon)
-                tvAbilitiesName.text = patch.displayName
-                tvChangesDesc.text = patch.changeOne
-                tvChangesDesc2.text = patch.changeTwo
+                imAbilities.load(item.displayIcon)
+                tvAbilitiesName.text = item.displayName
+                tvChangesDesc.text = item.changeOne
+                tvChangesDesc2.text = item.changeTwo
             }
         }
     }
