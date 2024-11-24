@@ -19,6 +19,6 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
--keep class fingerfire.com.overwatch.features.heroes.data.response.** { *; }
--keep class fingerfire.com.overwatch.features.maps.data.response.** { *; }
--keep class fingerfire.com.overwatch.features.patchs.data.response.** { *; }
+-keep class fingerfire.com.overguide.features.heroes.data.response.** { *; }
+-keep class fingerfire.com.overguide.features.maps.data.response.** { *; }
+-keep class fingerfire.com.overguide.features.patchs.data.response.** { *; }

@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/patchsFragment"
-        android:name="fingerfire.com.overwatch.features.patchs.ui.PatchsFragment">
+        android:name="fingerfire.com.overguide.features.patchs.ui.PatchsFragment">
         <!--        <action-->
         <!--            android:id="@+id/action_mapsFragment_to_mapDetailFragment"-->
         <!--            app:destination="@id/mapDetailFragment" />-->

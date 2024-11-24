@@ -7,14 +7,14 @@
 
     <fragment
         android:id="@+id/heroesFragment"
-        android:name="fingerfire.com.overwatch.features.heroes.ui.HeroesFragment">
+        android:name="fingerfire.com.overguide.features.heroes.ui.HeroesFragment">
         <action
             android:id="@+id/action_heroesFragment_to_heroesDetailFragment"
             app:destination="@id/heroesDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/heroesDetailFragment"
-        android:name="fingerfire.com.overwatch.features.heroes.ui.HeroesDetailFragment"
+        android:name="fingerfire.com.overguide.features.heroes.ui.HeroesDetailFragment"
         tools:layout="@layout/fragment_heroes_detail">
 
         <argument
